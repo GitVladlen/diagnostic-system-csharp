@@ -46,10 +46,10 @@ namespace DiagnosticSystem
         private DataSet getClassificatorsDataSet()
         {
             // todo: retrieve path from app configurations
-            string FilePath = "d:/Documents/GitHub/diagnostic-system-csharp/classificators.xls";
-            string FilePath2 = "d:/Documents/GitHub/diagnostic-system-csharp/classificators_2.xls";
+            string FilePathVladlen = "d:/Documents/GitHub/diagnostic-system-csharp/classificators_3.xls";
+            string FilePathYura = "d:/Documents/GitHub/diagnostic-system-csharp/classificators_2.xls";
 
-            return readDataSetFromExcel(FilePath, false);
+            return readDataSetFromExcel(FilePathVladlen, false);
         }
 
         private void initUserDataTable()

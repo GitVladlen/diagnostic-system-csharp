@@ -34,6 +34,9 @@ namespace DiagnosticSystem
             {
                 // gain coef name and value
                 string var_name = row.Field<string>(0);
+
+                if(var_name == null) continue;
+                
                 double var_koef = row.Field<double>(1);
 
                 // search in data param with coef name
