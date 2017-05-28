@@ -23,10 +23,10 @@ namespace DiagnosticSystem
             return false;
         }
 
-        public static double classify(DataTable class_table, DataTable data_table, int RowIndex)
+        public static double calc_classification_polinom(DataTable class_table, DataTable data_table, int RowIndex, int ClassColIndex)
         {
             // def 
-            double class_1_result = 0;
+            double result_polinom = 0;
             String pattern = @"(x\d+)_(.+)";
 
             // iter by coef table
@@ -35,15 +35,15 @@ namespace DiagnosticSystem
                 // gain coef name and value
                 string var_name = row.Field<string>(0);
 
-                if(var_name == null) continue;
-                
-                double var_koef = row.Field<double>(1);
+                if (var_name == null) continue;
+
+                double var_koef = row.Field<double>(ClassColIndex);
 
                 // search in data param with coef name
                 double var_value = 0;
                 if (getValByRowIndexAndColName(data_table, RowIndex, var_name, ref var_value))
                 {
-                    class_1_result += var_koef * var_value;
+                    result_polinom += var_koef * var_value;
                     continue;
                 }
 
@@ -55,7 +55,7 @@ namespace DiagnosticSystem
                     string nl_var_name = m.Groups[1].Value;
                     string ml_arg = m.Groups[2].Value;
 
-                    if(getValByRowIndexAndColName(data_table, RowIndex, nl_var_name, ref arg_value))
+                    if (getValByRowIndexAndColName(data_table, RowIndex, nl_var_name, ref arg_value))
                     {
                         if (ml_arg.Equals("1_x"))
                             arg_value = (1 / arg_value);
@@ -72,23 +72,37 @@ namespace DiagnosticSystem
                     }
                 }
 
-                class_1_result += var_koef * arg_value;
+                result_polinom += var_koef * arg_value;
             }
 
-            double class_1_p = 1 / (1 + Math.Exp(-class_1_result));
+            return result_polinom;
+        }
 
-            bool class_bool_result = true;
+        public static double classify(DataTable class_table, DataTable data_table, int RowIndex)
+        {
+            double class_result = calc_classification_polinom(class_table, data_table, RowIndex, 1);
 
-            if (class_1_p >= 0.5)
-                class_bool_result = false;
+            double class_p = 1 / (1 + Math.Exp(-class_result));
 
-            //Console.WriteLine("{0} Coef 1 z = {1} p = {2} class = {3}", 
-            //    RowIndex, 
-            //    class_1_result, 
-            //    class_1_p, 
-            //    class_bool_result);
+            return class_p;
+        }
 
-            return class_1_p;
+        
+
+        public static double classify_da(DataTable class_table, DataTable data_table, int RowIndex)
+        {
+            double class_1_result = calc_classification_polinom(class_table, data_table, RowIndex, 1);
+            double class_2_result = calc_classification_polinom(class_table, data_table, RowIndex, 2);
+
+            double result = class_1_result - class_2_result;
+
+            Console.WriteLine("{0}: c1={1} c2={2} r={3}",
+                RowIndex,
+                class_1_result,
+                class_2_result,
+                result);
+
+            return result;
         }
     }
 }

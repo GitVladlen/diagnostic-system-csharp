@@ -193,6 +193,78 @@ namespace DiagnosticSystem
             return total_success;
         }
 
+        private double classification_da(DataTable data_table)
+        {
+            int[] statistic_success = { 0, 0, 0, 0 };
+
+            int res_col_index = -1;
+
+            if (!data_table.Columns.Contains("k-result"))
+                data_table.Columns.Add("k-result");
+
+            res_col_index = getColIndexByColName(data_table, "k-result");
+
+
+            double res_1_123, res_2_134, res_3_124, res_4_123;
+            for (int RowIndex = 0; RowIndex < data_table.Rows.Count; RowIndex++)
+            {
+                res_1_123 = Classification.classify_da(classificators.Tables["1_234"], data_table, RowIndex);
+                res_2_134 = Classification.classify_da(classificators.Tables["2_134"], data_table, RowIndex);
+                res_3_124 = Classification.classify_da(classificators.Tables["3_124"], data_table, RowIndex);
+                res_4_123 = Classification.classify_da(classificators.Tables["4_123"], data_table, RowIndex);
+
+                int diagnos = 0;
+
+                if (res_1_123 > res_2_134 &&
+                   res_1_123 > res_3_124 &&
+                   res_1_123 > res_4_123) diagnos = 1;
+
+                if (res_2_134 > res_1_123 &&
+                   res_2_134 > res_3_124 &&
+                   res_2_134 > res_4_123) diagnos = 2;
+
+                if (res_3_124 > res_1_123 &&
+                   res_3_124 > res_2_134 &&
+                   res_3_124 > res_4_123) diagnos = 3;
+
+                if (res_4_123 > res_1_123 &&
+                   res_4_123 > res_2_134 &&
+                   res_4_123 > res_3_124) diagnos = 4;
+
+
+
+                data_table.Rows[RowIndex].SetField<int>(res_col_index, diagnos);
+                double true_diagnos = 0;
+                Classification.getValByRowIndexAndColName(data_table, RowIndex, "k", ref true_diagnos);
+
+                int true_diagnos_int = Convert.ToInt16(true_diagnos);
+
+                bool isSucces = diagnos == true_diagnos_int;
+
+                if (isSucces)
+                    statistic_success[true_diagnos_int - 1] += 1;
+
+                Console.WriteLine("{0}: 1={1}, 2={2}, 3={3}, 4={4}, diagnos={5}, true_dignos={6} >> {7}",
+                    RowIndex,
+                    res_1_123,
+                    res_2_134,
+                    res_3_124,
+                    res_4_123,
+                    diagnos,
+                    true_diagnos_int,
+                    isSucces);
+
+
+
+            }
+
+            double total_success = statistic_success.Sum() / Convert.ToDouble(data_table.Rows.Count);
+
+            Console.WriteLine("Total Success = {0}", total_success);
+
+            return total_success;
+        }
+
         private void btnClassify_Click(object sender, EventArgs e)
         {
             //DataTable data_table = data.Tables["mitral"];
@@ -209,7 +281,7 @@ namespace DiagnosticSystem
         {
             DataTable data_table = (DataTable)dgvWorkMode.DataSource;
 
-            double total_success = classification(data_table);
+            double total_success = classification_da(data_table);
 
             //lblTotalSuccessTest.Text = String.Format("{0:P}", total_success);
         }
