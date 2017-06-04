@@ -158,6 +158,7 @@
             this.dgvWorkMode.Name = "dgvWorkMode";
             this.dgvWorkMode.Size = new System.Drawing.Size(645, 402);
             this.dgvWorkMode.TabIndex = 6;
+            this.dgvWorkMode.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvWorkMode_CellValidating);
             this.dgvWorkMode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvWorkMode_KeyUp);
             // 
             // tabPage2

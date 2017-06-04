@@ -1,0 +1,11 @@
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\bin\Release\DiagnosticSystem.exe.config
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\bin\Release\DiagnosticSystem.exe
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\bin\Release\DiagnosticSystem.pdb
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\bin\Release\Excel.dll
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\bin\Release\ICSharpCode.SharpZipLib.dll
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\bin\Release\Excel.pdb
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\obj\Release\DiagnosticSystem.Form1.resources
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\obj\Release\DiagnosticSystem.Properties.Resources.resources
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\obj\Release\DiagnosticSystem.csproj.GenerateResource.Cache
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\obj\Release\DiagnosticSystem.exe
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\obj\Release\DiagnosticSystem.pdb

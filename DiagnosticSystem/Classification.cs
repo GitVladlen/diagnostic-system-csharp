@@ -14,11 +14,15 @@ namespace DiagnosticSystem
         {
             for (int ColIndex = 0; ColIndex < table.Columns.Count; ColIndex++)
             {
+                if (table.Rows[RowIndex].RowState.Equals(DataRowState.Deleted))
+                    continue;
+
                 if (table.Columns[ColIndex].ColumnName.Equals(ColName))
                 {
                     Value = table.Rows[RowIndex].Field<double>(ColIndex);
                     return true;
                 }
+
             }
             return false;
         }

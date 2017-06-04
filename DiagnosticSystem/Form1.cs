@@ -40,13 +40,12 @@ namespace DiagnosticSystem
 
             return result;
         }
-
         // ----------------------------------------------------------------------------------
 
         private DataSet getClassificatorsDataSet()
         {
             // todo: retrieve path from app configurations
-            string FilePathVladlen = "d:/Documents/GitHub/diagnostic-system-csharp/classificators_3.xls";
+            string FilePathVladlen = "d:/Documents/GitHub/diagnostic-system-csharp/classificators.xls";
             string FilePathYura = "d:/Documents/GitHub/diagnostic-system-csharp/classificators_2.xls";
 
             return readDataSetFromExcel(FilePathVladlen, false);
@@ -136,6 +135,9 @@ namespace DiagnosticSystem
             double res_1_123, res_2_134, res_3_124, res_4_123;
             for (int RowIndex = 0; RowIndex < data_table.Rows.Count; RowIndex++)
             {
+                if (data_table.Rows[RowIndex].RowState.Equals(DataRowState.Deleted))
+                    continue;
+
                 res_1_123 = Classification.classify(classificators.Tables["1_234"], data_table, RowIndex);
                 res_2_134 = Classification.classify(classificators.Tables["2_134"], data_table, RowIndex);
                 res_3_124 = Classification.classify(classificators.Tables["3_124"], data_table, RowIndex);
@@ -208,6 +210,9 @@ namespace DiagnosticSystem
             double res_1_123, res_2_134, res_3_124, res_4_123;
             for (int RowIndex = 0; RowIndex < data_table.Rows.Count; RowIndex++)
             {
+                if (data_table.Rows[RowIndex].RowState.Equals(DataRowState.Deleted))
+                    continue;
+
                 res_1_123 = Classification.classify_da(classificators.Tables["1_234"], data_table, RowIndex);
                 res_2_134 = Classification.classify_da(classificators.Tables["2_134"], data_table, RowIndex);
                 res_3_124 = Classification.classify_da(classificators.Tables["3_124"], data_table, RowIndex);
@@ -281,7 +286,7 @@ namespace DiagnosticSystem
         {
             DataTable data_table = (DataTable)dgvWorkMode.DataSource;
 
-            double total_success = classification_da(data_table);
+            double total_success = classification(data_table);
 
             //lblTotalSuccessTest.Text = String.Format("{0:P}", total_success);
         }
@@ -339,6 +344,23 @@ namespace DiagnosticSystem
             if ((e.Shift && e.KeyCode == Keys.Insert) || (e.Control && e.KeyCode == Keys.V))
             {
                 PasteClipboard(userDataTable);
+            }
+        }
+
+        private void dgvWorkMode_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            dgvWorkMode.Rows[e.RowIndex].ErrorText = "";
+            double newDouble;
+
+            // Don't try to validate the 'new row' until finished 
+            // editing since there
+            // is not any point in validating its initial value.
+            if (dgvWorkMode.Rows[e.RowIndex].IsNewRow) { return; }
+            if (!double.TryParse(e.FormattedValue.ToString(),
+                out newDouble))
+            {
+                e.Cancel = true;
+                dgvWorkMode.Rows[e.RowIndex].ErrorText = "Значение должно быть числом";
             }
         }
 
