@@ -47,6 +47,11 @@
             this.cboSheet = new System.Windows.Forms.ComboBox();
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnClassify = new System.Windows.Forms.Button();
+            this.розшифровкаЗміннихМоделіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.розшифровкаРезультатівМоделіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.інструкціяКористувачаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.проПрограммуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.вихідToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -68,12 +73,19 @@
             // 
             // файлToolStripMenuItem
             // 
+            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.вихідToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // довідкаToolStripMenuItem
             // 
+            this.довідкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.інструкціяКористувачаToolStripMenuItem,
+            this.розшифровкаЗміннихМоделіToolStripMenuItem,
+            this.розшифровкаРезультатівМоделіToolStripMenuItem,
+            this.проПрограммуToolStripMenuItem});
             this.довідкаToolStripMenuItem.Name = "довідкаToolStripMenuItem";
             this.довідкаToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.довідкаToolStripMenuItem.Text = "Довідка";
@@ -242,6 +254,37 @@
             this.btnClassify.UseVisualStyleBackColor = true;
             this.btnClassify.Click += new System.EventHandler(this.btnClassify_Click);
             // 
+            // розшифровкаЗміннихМоделіToolStripMenuItem
+            // 
+            this.розшифровкаЗміннихМоделіToolStripMenuItem.Name = "розшифровкаЗміннихМоделіToolStripMenuItem";
+            this.розшифровкаЗміннихМоделіToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.розшифровкаЗміннихМоделіToolStripMenuItem.Text = "Розшифровка змінних моделі";
+            // 
+            // розшифровкаРезультатівМоделіToolStripMenuItem
+            // 
+            this.розшифровкаРезультатівМоделіToolStripMenuItem.Name = "розшифровкаРезультатівМоделіToolStripMenuItem";
+            this.розшифровкаРезультатівМоделіToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.розшифровкаРезультатівМоделіToolStripMenuItem.Text = "Розшифровка результатів моделі";
+            // 
+            // інструкціяКористувачаToolStripMenuItem
+            // 
+            this.інструкціяКористувачаToolStripMenuItem.Name = "інструкціяКористувачаToolStripMenuItem";
+            this.інструкціяКористувачаToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.інструкціяКористувачаToolStripMenuItem.Text = "Інструкція користувача";
+            // 
+            // проПрограммуToolStripMenuItem
+            // 
+            this.проПрограммуToolStripMenuItem.Name = "проПрограммуToolStripMenuItem";
+            this.проПрограммуToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.проПрограммуToolStripMenuItem.Text = "Про програму";
+            this.проПрограммуToolStripMenuItem.Click += new System.EventHandler(this.проПрограммуToolStripMenuItem_Click);
+            // 
+            // вихідToolStripMenuItem
+            // 
+            this.вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
+            this.вихідToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.вихідToolStripMenuItem.Text = "Вихід";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +332,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboSheetWork;
         private System.Windows.Forms.Button btnOpenWork;
+        private System.Windows.Forms.ToolStripMenuItem інструкціяКористувачаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem розшифровкаЗміннихМоделіToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem розшифровкаРезультатівМоделіToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem проПрограммуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem вихідToolStripMenuItem;
     }
 }
 

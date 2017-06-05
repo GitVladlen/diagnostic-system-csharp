@@ -364,6 +364,11 @@ namespace DiagnosticSystem
             }
         }
 
+        private void проПрограммуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnOpenWork_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Excel Workbook|*.xls", ValidateNames = true })
