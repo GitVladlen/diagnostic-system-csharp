@@ -45,10 +45,9 @@ namespace DiagnosticSystem
         private DataSet getClassificatorsDataSet()
         {
             // todo: retrieve path from app configurations
-            string FilePathVladlen = "d:/Documents/GitHub/diagnostic-system-csharp/classificators_5.xls";
-            string FilePathYura = "d:/Documents/GitHub/diagnostic-system-csharp/classificators_2.xls";
+            string FilePath = "./classificators_5.xls";
 
-            return readDataSetFromExcel(FilePathVladlen, false);
+            return readDataSetFromExcel(FilePath, false);
         }
 
         private void initUserDataTable()
@@ -272,23 +271,24 @@ namespace DiagnosticSystem
 
         private void btnClassify_Click(object sender, EventArgs e)
         {
-            //DataTable data_table = data.Tables["mitral"];
+            if (dataGridView.Rows.Count == 0)
+                return;
+
             DataTable data_table = (DataTable)dataGridView.DataSource;
 
             double total_success = classification_da(data_table);
 
             lblTotalSuccessTest.Text = String.Format("{0:P}", total_success);
-
-
         }
 
         private void btnClassifyWork_Click(object sender, EventArgs e)
         {
+            if (dataGridView.Rows.Count == 0)
+                return;
+
             DataTable data_table = (DataTable)dgvWorkMode.DataSource;
 
             double total_success = classification_da(data_table);
-
-            //lblTotalSuccessTest.Text = String.Format("{0:P}", total_success);
         }
 
         private void cboSheetWork_SelectedIndexChanged(object sender, EventArgs e)
