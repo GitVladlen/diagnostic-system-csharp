@@ -283,7 +283,7 @@ namespace DiagnosticSystem
 
         private void btnClassifyWork_Click(object sender, EventArgs e)
         {
-            if (dataGridView.Rows.Count == 0)
+            if (dgvWorkMode.Rows.Count == 0)
                 return;
 
             DataTable data_table = (DataTable)dgvWorkMode.DataSource;
