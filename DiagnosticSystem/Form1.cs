@@ -369,6 +369,21 @@ namespace DiagnosticSystem
 
         }
 
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void вихідToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void btnOpenWork_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Excel Workbook|*.xls", ValidateNames = true })
