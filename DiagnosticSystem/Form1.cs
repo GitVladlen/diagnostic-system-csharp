@@ -45,7 +45,7 @@ namespace DiagnosticSystem
         private DataSet getClassificatorsDataSet()
         {
             // todo: retrieve path from app configurations
-            string FilePathVladlen = "d:/Documents/GitHub/diagnostic-system-csharp/classificators.xls";
+            string FilePathVladlen = "d:/Documents/GitHub/diagnostic-system-csharp/classificators_5.xls";
             string FilePathYura = "d:/Documents/GitHub/diagnostic-system-csharp/classificators_2.xls";
 
             return readDataSetFromExcel(FilePathVladlen, false);
@@ -171,7 +171,7 @@ namespace DiagnosticSystem
 
                 bool isSucces = diagnos == true_diagnos_int;
 
-                if (isSucces)
+                if (isSucces && true_diagnos_int > 0)
                     statistic_success[true_diagnos_int - 1] += 1;
 
                 Console.WriteLine("{0}: 1={1}, 2={2}, 3={3}, 4={4}, diagnos={5}, true_dignos={6} >> {7}",
@@ -246,7 +246,7 @@ namespace DiagnosticSystem
 
                 bool isSucces = diagnos == true_diagnos_int;
 
-                if (isSucces)
+                if (isSucces && true_diagnos_int > 0)
                     statistic_success[true_diagnos_int - 1] += 1;
 
                 Console.WriteLine("{0}: 1={1}, 2={2}, 3={3}, 4={4}, diagnos={5}, true_dignos={6} >> {7}",
@@ -275,7 +275,7 @@ namespace DiagnosticSystem
             //DataTable data_table = data.Tables["mitral"];
             DataTable data_table = (DataTable)dataGridView.DataSource;
 
-            double total_success = classification(data_table);
+            double total_success = classification_da(data_table);
 
             lblTotalSuccessTest.Text = String.Format("{0:P}", total_success);
 
@@ -286,7 +286,7 @@ namespace DiagnosticSystem
         {
             DataTable data_table = (DataTable)dgvWorkMode.DataSource;
 
-            double total_success = classification(data_table);
+            double total_success = classification_da(data_table);
 
             //lblTotalSuccessTest.Text = String.Format("{0:P}", total_success);
         }
@@ -356,11 +356,11 @@ namespace DiagnosticSystem
             // editing since there
             // is not any point in validating its initial value.
             if (dgvWorkMode.Rows[e.RowIndex].IsNewRow) { return; }
-            if (!double.TryParse(e.FormattedValue.ToString(),
-                out newDouble))
+            if (!e.FormattedValue.ToString().Equals("") && !double.TryParse(e.FormattedValue.ToString(),
+                out newDouble) )
             {
                 e.Cancel = true;
-                dgvWorkMode.Rows[e.RowIndex].ErrorText = "Значение должно быть числом";
+                dgvWorkMode.Rows[e.RowIndex].ErrorText = "Значення комірки повинно бути числом";
             }
         }
 

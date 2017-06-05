@@ -19,6 +19,11 @@ namespace DiagnosticSystem
 
                 if (table.Columns[ColIndex].ColumnName.Equals(ColName))
                 {
+                    if(table.Rows[RowIndex][ColIndex].ToString().Equals(""))
+                    {
+                        Value = 0;
+                        return true;
+                    }
                     Value = table.Rows[RowIndex].Field<double>(ColIndex);
                     return true;
                 }

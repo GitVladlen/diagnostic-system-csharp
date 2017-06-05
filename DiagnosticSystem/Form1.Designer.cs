@@ -192,9 +192,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(8, 447);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(231, 13);
+            this.label2.Size = new System.Drawing.Size(237, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Відсоток правильно клсифікованих об\'єктів:";
+            this.label2.Text = "Відсоток правильно класифікованих об\'єктів:";
             // 
             // label1
             // 
