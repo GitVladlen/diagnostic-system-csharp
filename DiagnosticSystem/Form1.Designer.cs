@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вихідToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +57,8 @@
             this.lblTotalSuccessTest = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.cboSheet = new System.Windows.Forms.ComboBox();
             this.btnOpen = new System.Windows.Forms.Button();
+            this.cboSheet = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -94,7 +96,7 @@
             // вихідToolStripMenuItem
             // 
             this.вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
-            this.вихідToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.вихідToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.вихідToolStripMenuItem.Text = "Вихід";
             this.вихідToolStripMenuItem.Click += new System.EventHandler(this.вихідToolStripMenuItem_Click);
             // 
@@ -186,6 +188,14 @@
             // 
             // dgvWorkMode
             // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvWorkMode.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvWorkMode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWorkMode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvWorkMode.Location = new System.Drawing.Point(3, 36);
@@ -228,7 +238,7 @@
             // 
             this.btnOpenWork.Location = new System.Drawing.Point(252, 3);
             this.btnOpenWork.Name = "btnOpenWork";
-            this.btnOpenWork.Size = new System.Drawing.Size(132, 21);
+            this.btnOpenWork.Size = new System.Drawing.Size(147, 21);
             this.btnOpenWork.TabIndex = 11;
             this.btnOpenWork.Text = "Відкрити файл даних *.xls";
             this.btnOpenWork.UseVisualStyleBackColor = true;
@@ -250,13 +260,14 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(390, 3);
+            this.label3.Location = new System.Drawing.Point(405, 3);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 21);
+            this.label3.Size = new System.Drawing.Size(146, 21);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Вибрати лист:";
+            this.label3.Text = "Вибрати лист з Excel:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // tabPage2
             // 
@@ -289,6 +300,14 @@
             // 
             // dataGridView
             // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.Location = new System.Drawing.Point(3, 41);
@@ -369,22 +388,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(500, 0);
+            this.label1.Location = new System.Drawing.Point(462, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 32);
+            this.label1.Size = new System.Drawing.Size(116, 32);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Вибрати лист:";
+            this.label1.Text = "Вибрати лист з Excel:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cboSheet
-            // 
-            this.cboSheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboSheet.FormattingEnabled = true;
-            this.cboSheet.Location = new System.Drawing.Point(584, 3);
-            this.cboSheet.Name = "cboSheet";
-            this.cboSheet.Size = new System.Drawing.Size(171, 21);
-            this.cboSheet.TabIndex = 4;
-            this.cboSheet.SelectedIndexChanged += new System.EventHandler(this.cboSheet_SelectedIndexChanged);
             // 
             // btnOpen
             // 
@@ -395,6 +404,16 @@
             this.btnOpen.Text = "Відкрити файл даних *.xls";
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // cboSheet
+            // 
+            this.cboSheet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboSheet.FormattingEnabled = true;
+            this.cboSheet.Location = new System.Drawing.Point(584, 3);
+            this.cboSheet.Name = "cboSheet";
+            this.cboSheet.Size = new System.Drawing.Size(171, 21);
+            this.cboSheet.TabIndex = 4;
+            this.cboSheet.SelectedIndexChanged += new System.EventHandler(this.cboSheet_SelectedIndexChanged);
             // 
             // tableLayoutPanel1
             // 

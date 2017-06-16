@@ -17,9 +17,9 @@ namespace DiagnosticSystem
                 if (table.Rows[RowIndex].RowState.Equals(DataRowState.Deleted))
                     continue;
 
-                if (table.Columns[ColIndex].ColumnName.Equals(ColName))
+                if (table.Columns[ColIndex].ColumnName.StartsWith(ColName))
                 {
-                    if(table.Rows[RowIndex][ColIndex].ToString().Equals(""))
+                    if(table.Rows[RowIndex][ColIndex].ToString().Equals("") || table.Rows[RowIndex][ColIndex] == null)
                     {
                         Value = 0;
                         return true;
@@ -105,11 +105,11 @@ namespace DiagnosticSystem
 
             double result = class_1_result - class_2_result;
 
-            Console.WriteLine("{0}: c1={1} c2={2} r={3}",
-                RowIndex,
-                class_1_result,
-                class_2_result,
-                result);
+            //Console.WriteLine("{0}: c1={1} c2={2} r={3}",
+            //    RowIndex,
+            //    class_1_result,
+            //    class_2_result,
+            //    result);
 
             return result;
         }

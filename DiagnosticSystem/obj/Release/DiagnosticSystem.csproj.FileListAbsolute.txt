@@ -9,3 +9,4 @@ D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\obj\Release\Diagno
 D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\obj\Release\DiagnosticSystem.csproj.GenerateResource.Cache
 D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\obj\Release\DiagnosticSystem.exe
 D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\obj\Release\DiagnosticSystem.pdb
+D:\Documents\GitHub\diagnostic-system-csharp\DiagnosticSystem\obj\Release\DiagnosticSystem.csprojResolveAssemblyReference.cache
